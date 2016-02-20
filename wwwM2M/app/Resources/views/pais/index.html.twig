@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <div class="container">
+        <h1>{% trans %}Country List{% endtrans %}</h1>
+
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>{% trans %}Country{% endtrans %}</th>
+                    <th>{% trans %}Actions{% endtrans %}</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for pai in pagination %}
+                <tr>
+                    <td><a href="{{ path('admin_pais_show', { 'id': pai.id }) }}">{{ pai.nombrepais }}</a></td>
+                    <td>
+                        <ul>
+                            <li>
+                                <a href="{{ path('admin_pais_show', { 'id': pai.id }) }}">{% trans %}show{% endtrans %}</a>
+                            </li>
+                            <li>
+                                <a href="{{ path('admin_pais_edit', { 'id': pai.id }) }}">{% trans %}edit{% endtrans %}</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+        <div class="center">
+            <div class="navigation">
+                {{ knp_pagination_render(pagination) }}
+            </div>
+        </div>
+
+        <ul>
+            <li>
+                <a href="{{ path('admin_pais_new') }}">Create a new entry</a>
+            </li>
+        </ul>
+
+    </div>    
+{% endblock %}
