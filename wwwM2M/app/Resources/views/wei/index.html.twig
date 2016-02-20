@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+        <h1>Wei list</h1>
+
+        <table class="table table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th>Nickname</th>
+                    <th>Status</th>
+                    <th>Lastreport</th>
+                    <th>Imei</th>
+                    <th>Description</th>
+                    <th>Operator</th>
+                    <th>Activationdate</th>
+                    <th>Modificationdate</th>
+                    <th>Chipnumber</th>
+                    <th>Idwei</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for wei in weis %}
+                <tr>
+                    <td><a href="{{ path('admin_wei_show', { 'id': wei.idwei }) }}">{{ wei.nickname }}</a></td>
+                    <td>{{ wei.status }}</td>
+                    <td>{% if wei.lastreport %}{{ wei.lastreport|date('Y-m-d H:i:s') }}{% endif %}</td>
+                    <td>{{ wei.imei }}</td>
+                    <td>{{ wei.description }}</td>
+                    <td>{{ wei.operator }}</td>
+                    <td>{% if wei.activationdate %}{{ wei.activationdate|date('Y-m-d H:i:s') }}{% endif %}</td>
+                    <td>{% if wei.modificationdate %}{{ wei.modificationdate|date('Y-m-d H:i:s') }}{% endif %}</td>
+                    <td>{{ wei.chipnumber }}</td>
+                    <td>{{ wei.idwei }}</td>
+                    <td>
+                        <ul>
+                            <li>
+                                <a href="{{ path('admin_wei_show', { 'id': wei.idwei }) }}">show</a>
+                            </li>
+                            <li>
+                                <a href="{{ path('admin_wei_edit', { 'id': wei.idwei }) }}">edit</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+        <ul>
+            <li>
+                <a href="{{ path('admin_wei_new') }}">Create a new entry</a>
+            </li>
+        </ul>
+    </div>
+{% endblock %}

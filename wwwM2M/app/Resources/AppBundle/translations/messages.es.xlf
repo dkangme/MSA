@@ -26,6 +26,18 @@
             	<source>Create a new entry</source>
             	<target>Crear nuevo elemento</target>
             </trans-unit>
+            <trans-unit id="7">
+                <source>Country edit</source>
+                <target>Edición de País</target>
+            </trans-unit>
+            <trans-unit id="8">
+                <source>Edit</source>
+                <target>Editar</target>
+            </trans-unit>
+            <trans-unit id="9">
+                <source>Back to the list</source>
+                <target>Volver</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

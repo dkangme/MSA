@@ -1,0 +1,92 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+<style>
+
+    #g1,
+    #g2,
+    #g3 {
+        width: 200px;
+        height: 160px;
+        display: inline-block;
+        margin: 1em;
+    }
+
+</style>
+
+{% endblock stylesheets %}
+
+
+{% block body %}
+    <div class="container">
+        <h1>Sensor list</h1>
+
+        <table class="table table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th>ModWEI</th>
+                    <th>Sensor</th>
+                    <th>Human value</th>
+                    <th>Gauge</th>
+                    <th>Lastreport</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for sensor in sensors %}
+                <tr>
+                    <td>{{ sensor.weiwei.nickName }}</td>
+                    <td>{{ sensor.sensortypesensortype.description }}</td>
+                    <td>{{ sensor.humanvalue }}</td>
+                    <td><div id="g{{ loop.index }}"></div></td>
+                    <td>{% if sensor.lastreport %}{{ sensor.lastreport|date('d-m-Y H:i:s') }}{% endif %}</td>
+                    
+                    <td>
+                        <ul>
+                            <li>
+                                <a href="{{ path('sensor_show', { 'id': sensor.idsensor }) }}">show</a>
+                            </li>
+                            <li>
+                                <a href="{{ path('sensor_edit', { 'id': sensor.idsensor }) }}">edit</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+        <ul>
+            <li>
+                <a href="{{ path('sensor_new') }}">Create a new entry</a>
+            </li>
+        </ul>
+    </div>
+    <script src="{{ asset('js/raphael-2.1.4.min.js') }}"></script>
+    <script src="{{ asset('js/justgage.js') }}"></script>
+    <script>
+        var {% for sensor in sensors %} g{{ loop.index }}{% if loop.last == true %}{% else %},{% endif %} {% endfor %};
+
+        document.addEventListener("DOMContentLoaded", function(event) {
+       
+    
+    {% for sensor in sensors %}
+            g{{ loop.index }} = new JustGage({
+                    id: "g{{ loop.index }}",
+                    value: {{ sensor.humanvalue }},
+                    min: {{ sensor.sensortypesensortype.minValue }},
+                    max: {{ sensor.sensortypesensortype.maxValue }},
+                    title: "{{ sensor.sensortypesensortype.description }}",
+                    label: "{{ sensor.sensortypesensortype.measurement }}"
+                });
+   {% endfor %}
+
+});
+
+    </script>
+
+{% endblock %}
+
+{% block javascripts %}
+
+{% endblock javascripts %}

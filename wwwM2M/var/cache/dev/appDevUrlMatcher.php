@@ -171,6 +171,130 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         }
 
+        if (0 === strpos($pathinfo, '/sensor')) {
+            // sensor_index
+            if (rtrim($pathinfo, '/') === '/sensor') {
+                if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
+                    $allow = array_merge($allow, array('GET', 'HEAD'));
+                    goto not_sensor_index;
+                }
+
+                if (substr($pathinfo, -1) !== '/') {
+                    return $this->redirect($pathinfo.'/', 'sensor_index');
+                }
+
+                return array (  '_controller' => 'AppBundle\\Controller\\SensorController::indexAction',  '_route' => 'sensor_index',);
+            }
+            not_sensor_index:
+
+            // sensor_new
+            if ($pathinfo === '/sensor/new') {
+                if (!in_array($this->context->getMethod(), array('GET', 'POST', 'HEAD'))) {
+                    $allow = array_merge($allow, array('GET', 'POST', 'HEAD'));
+                    goto not_sensor_new;
+                }
+
+                return array (  '_controller' => 'AppBundle\\Controller\\SensorController::newAction',  '_route' => 'sensor_new',);
+            }
+            not_sensor_new:
+
+            // sensor_show
+            if (preg_match('#^/sensor/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
+                    $allow = array_merge($allow, array('GET', 'HEAD'));
+                    goto not_sensor_show;
+                }
+
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'sensor_show')), array (  '_controller' => 'AppBundle\\Controller\\SensorController::showAction',));
+            }
+            not_sensor_show:
+
+            // sensor_edit
+            if (preg_match('#^/sensor/(?P<id>[^/]++)/edit$#s', $pathinfo, $matches)) {
+                if (!in_array($this->context->getMethod(), array('GET', 'POST', 'HEAD'))) {
+                    $allow = array_merge($allow, array('GET', 'POST', 'HEAD'));
+                    goto not_sensor_edit;
+                }
+
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'sensor_edit')), array (  '_controller' => 'AppBundle\\Controller\\SensorController::editAction',));
+            }
+            not_sensor_edit:
+
+            // sensor_delete
+            if (preg_match('#^/sensor/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                if ($this->context->getMethod() != 'DELETE') {
+                    $allow[] = 'DELETE';
+                    goto not_sensor_delete;
+                }
+
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'sensor_delete')), array (  '_controller' => 'AppBundle\\Controller\\SensorController::deleteAction',));
+            }
+            not_sensor_delete:
+
+        }
+
+        if (0 === strpos($pathinfo, '/admin/wei')) {
+            // admin_wei_index
+            if (rtrim($pathinfo, '/') === '/admin/wei') {
+                if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
+                    $allow = array_merge($allow, array('GET', 'HEAD'));
+                    goto not_admin_wei_index;
+                }
+
+                if (substr($pathinfo, -1) !== '/') {
+                    return $this->redirect($pathinfo.'/', 'admin_wei_index');
+                }
+
+                return array (  '_controller' => 'AppBundle\\Controller\\WeiController::indexAction',  '_route' => 'admin_wei_index',);
+            }
+            not_admin_wei_index:
+
+            // admin_wei_new
+            if ($pathinfo === '/admin/wei/new') {
+                if (!in_array($this->context->getMethod(), array('GET', 'POST', 'HEAD'))) {
+                    $allow = array_merge($allow, array('GET', 'POST', 'HEAD'));
+                    goto not_admin_wei_new;
+                }
+
+                return array (  '_controller' => 'AppBundle\\Controller\\WeiController::newAction',  '_route' => 'admin_wei_new',);
+            }
+            not_admin_wei_new:
+
+            // admin_wei_show
+            if (preg_match('#^/admin/wei/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
+                    $allow = array_merge($allow, array('GET', 'HEAD'));
+                    goto not_admin_wei_show;
+                }
+
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'admin_wei_show')), array (  '_controller' => 'AppBundle\\Controller\\WeiController::showAction',));
+            }
+            not_admin_wei_show:
+
+            // admin_wei_edit
+            if (preg_match('#^/admin/wei/(?P<id>[^/]++)/edit$#s', $pathinfo, $matches)) {
+                if (!in_array($this->context->getMethod(), array('GET', 'POST', 'HEAD'))) {
+                    $allow = array_merge($allow, array('GET', 'POST', 'HEAD'));
+                    goto not_admin_wei_edit;
+                }
+
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'admin_wei_edit')), array (  '_controller' => 'AppBundle\\Controller\\WeiController::editAction',));
+            }
+            not_admin_wei_edit:
+
+            // admin_wei_delete
+            if (preg_match('#^/admin/wei/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                if ($this->context->getMethod() != 'DELETE') {
+                    $allow[] = 'DELETE';
+                    goto not_admin_wei_delete;
+                }
+
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'admin_wei_delete')), array (  '_controller' => 'AppBundle\\Controller\\WeiController::deleteAction',));
+            }
+            not_admin_wei_delete:
+
+        }
+
         throw 0 < count($allow) ? new MethodNotAllowedException(array_unique($allow)) : new ResourceNotFoundException();
     }
 }

@@ -21,20 +21,20 @@ class __TwigTemplate_1835b481bb454c3cc41204f17f8c7738d3c958e8b6a832b8ca34b66dcaf
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_2b8adc4e25456e4b62a3372a7a8a3138589c00f0ed0dd43dcef49c35348423ad = $this->env->getExtension("native_profiler");
-        $__internal_2b8adc4e25456e4b62a3372a7a8a3138589c00f0ed0dd43dcef49c35348423ad->enter($__internal_2b8adc4e25456e4b62a3372a7a8a3138589c00f0ed0dd43dcef49c35348423ad_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "pais/index.html.twig"));
+        $__internal_60d3da2a124945d18dc1ae8ca7befb8f5abd471413d6b8b2e6135c25f6256255 = $this->env->getExtension("native_profiler");
+        $__internal_60d3da2a124945d18dc1ae8ca7befb8f5abd471413d6b8b2e6135c25f6256255->enter($__internal_60d3da2a124945d18dc1ae8ca7befb8f5abd471413d6b8b2e6135c25f6256255_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "pais/index.html.twig"));
 
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
-        $__internal_2b8adc4e25456e4b62a3372a7a8a3138589c00f0ed0dd43dcef49c35348423ad->leave($__internal_2b8adc4e25456e4b62a3372a7a8a3138589c00f0ed0dd43dcef49c35348423ad_prof);
+        $__internal_60d3da2a124945d18dc1ae8ca7befb8f5abd471413d6b8b2e6135c25f6256255->leave($__internal_60d3da2a124945d18dc1ae8ca7befb8f5abd471413d6b8b2e6135c25f6256255_prof);
 
     }
 
     // line 3
     public function block_body($context, array $blocks = array())
     {
-        $__internal_be9fbfcfa7f1e3ce1d4eaad3a21501f5a552ebf55bf72cba92f2c15a15e14c14 = $this->env->getExtension("native_profiler");
-        $__internal_be9fbfcfa7f1e3ce1d4eaad3a21501f5a552ebf55bf72cba92f2c15a15e14c14->enter($__internal_be9fbfcfa7f1e3ce1d4eaad3a21501f5a552ebf55bf72cba92f2c15a15e14c14_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
+        $__internal_cb0bcd36618b7e81bc9be90848f9864e6dd52dea3db15abb68d3b7ba714d9c11 = $this->env->getExtension("native_profiler");
+        $__internal_cb0bcd36618b7e81bc9be90848f9864e6dd52dea3db15abb68d3b7ba714d9c11->enter($__internal_cb0bcd36618b7e81bc9be90848f9864e6dd52dea3db15abb68d3b7ba714d9c11_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
 
         // line 4
         echo "
@@ -65,31 +65,17 @@ class __TwigTemplate_1835b481bb454c3cc41204f17f8c7738d3c958e8b6a832b8ca34b66dcaf
         foreach ($context['_seq'] as $context["_key"] => $context["pai"]) {
             // line 17
             echo "                <tr>
-                    <td><a href=\"";
+                    <td width=\"80%\">";
             // line 18
-            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("admin_pais_show", array("id" => $this->getAttribute($context["pai"], "id", array()))), "html", null, true);
-            echo "\">";
             echo twig_escape_filter($this->env, $this->getAttribute($context["pai"], "nombrepais", array()), "html", null, true);
-            echo "</a></td>
+            echo "</td>
                     <td>
-                        <ul>
-                            <li>
-                                <a href=\"";
-            // line 22
-            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("admin_pais_show", array("id" => $this->getAttribute($context["pai"], "id", array()))), "html", null, true);
-            echo "\">";
-            echo $this->env->getExtension('translator')->getTranslator()->trans("show", array(), "messages");
-            echo "</a>
-                            </li>
-                            <li>
-                                <a href=\"";
-            // line 25
+                        <a href=\"";
+            // line 20
             echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("admin_pais_edit", array("id" => $this->getAttribute($context["pai"], "id", array()))), "html", null, true);
-            echo "\">";
+            echo "\"><i class=\"fa fa-pencil\"></i> ";
             echo $this->env->getExtension('translator')->getTranslator()->trans("edit", array(), "messages");
             echo "</a>
-                            </li>
-                        </ul>
                     </td>
                 </tr>
             ";
@@ -97,32 +83,31 @@ class __TwigTemplate_1835b481bb454c3cc41204f17f8c7738d3c958e8b6a832b8ca34b66dcaf
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['pai'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 31
+        // line 24
         echo "            </tbody>
         </table>
 
         <div class=\"center\">
             <div class=\"navigation\">
                 ";
-        // line 36
+        // line 29
         echo $this->env->getExtension('knp_pagination')->render($this->env, (isset($context["pagination"]) ? $context["pagination"] : $this->getContext($context, "pagination")));
         echo "
             </div>
         </div>
 
-        <ul>
-            <li>
-                <a href=\"";
-        // line 42
+        
+        <a href=\"";
+        // line 34
         echo $this->env->getExtension('routing')->getPath("admin_pais_new");
-        echo "\">Create a new entry</a>
-            </li>
-        </ul>
-
+        echo "\"><i class=\"fa fa-plus-circle\"></i> ";
+        echo $this->env->getExtension('translator')->getTranslator()->trans("Create a new entry", array(), "messages");
+        echo "</a>
+        
     </div>    
 ";
         
-        $__internal_be9fbfcfa7f1e3ce1d4eaad3a21501f5a552ebf55bf72cba92f2c15a15e14c14->leave($__internal_be9fbfcfa7f1e3ce1d4eaad3a21501f5a552ebf55bf72cba92f2c15a15e14c14_prof);
+        $__internal_cb0bcd36618b7e81bc9be90848f9864e6dd52dea3db15abb68d3b7ba714d9c11->leave($__internal_cb0bcd36618b7e81bc9be90848f9864e6dd52dea3db15abb68d3b7ba714d9c11_prof);
 
     }
 
@@ -138,7 +123,7 @@ class __TwigTemplate_1835b481bb454c3cc41204f17f8c7738d3c958e8b6a832b8ca34b66dcaf
 
     public function getDebugInfo()
     {
-        return array (  117 => 42,  108 => 36,  101 => 31,  87 => 25,  79 => 22,  70 => 18,  67 => 17,  63 => 16,  56 => 12,  52 => 11,  44 => 6,  40 => 4,  34 => 3,  11 => 1,);
+        return array (  102 => 34,  94 => 29,  87 => 24,  75 => 20,  70 => 18,  67 => 17,  63 => 16,  56 => 12,  52 => 11,  44 => 6,  40 => 4,  34 => 3,  11 => 1,);
     }
 }
 /* {% extends 'base.html.twig' %}*/
@@ -158,16 +143,9 @@ class __TwigTemplate_1835b481bb454c3cc41204f17f8c7738d3c958e8b6a832b8ca34b66dcaf
 /*             <tbody>*/
 /*             {% for pai in pagination %}*/
 /*                 <tr>*/
-/*                     <td><a href="{{ path('admin_pais_show', { 'id': pai.id }) }}">{{ pai.nombrepais }}</a></td>*/
+/*                     <td width="80%">{{ pai.nombrepais }}</td>*/
 /*                     <td>*/
-/*                         <ul>*/
-/*                             <li>*/
-/*                                 <a href="{{ path('admin_pais_show', { 'id': pai.id }) }}">{% trans %}show{% endtrans %}</a>*/
-/*                             </li>*/
-/*                             <li>*/
-/*                                 <a href="{{ path('admin_pais_edit', { 'id': pai.id }) }}">{% trans %}edit{% endtrans %}</a>*/
-/*                             </li>*/
-/*                         </ul>*/
+/*                         <a href="{{ path('admin_pais_edit', { 'id': pai.id }) }}"><i class="fa fa-pencil"></i> {% trans %}edit{% endtrans %}</a>*/
 /*                     </td>*/
 /*                 </tr>*/
 /*             {% endfor %}*/
@@ -180,12 +158,9 @@ class __TwigTemplate_1835b481bb454c3cc41204f17f8c7738d3c958e8b6a832b8ca34b66dcaf
 /*             </div>*/
 /*         </div>*/
 /* */
-/*         <ul>*/
-/*             <li>*/
-/*                 <a href="{{ path('admin_pais_new') }}">Create a new entry</a>*/
-/*             </li>*/
-/*         </ul>*/
-/* */
+/*         */
+/*         <a href="{{ path('admin_pais_new') }}"><i class="fa fa-plus-circle"></i> {% trans %}Create a new entry{% endtrans %}</a>*/
+/*         */
 /*     </div>    */
 /* {% endblock %}*/
 /* */

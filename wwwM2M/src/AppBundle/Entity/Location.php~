@@ -1,0 +1,25 @@
+<?php
+
+namespace AppBundle\Entity;
+
+/**
+ * Location
+ */
+class Location
+{
+    /**
+     * @var integer
+     */
+    private $idlocation;
+
+
+    /**
+     * Get idlocation
+     *
+     * @return integer
+     */
+    public function getIdlocation()
+    {
+        return $this->idlocation;
+    }
+}

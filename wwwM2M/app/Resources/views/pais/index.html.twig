@@ -15,16 +15,9 @@
             <tbody>
             {% for pai in pagination %}
                 <tr>
-                    <td><a href="{{ path('admin_pais_show', { 'id': pai.id }) }}">{{ pai.nombrepais }}</a></td>
+                    <td width="80%">{{ pai.nombrepais }}</td>
                     <td>
-                        <ul>
-                            <li>
-                                <a href="{{ path('admin_pais_show', { 'id': pai.id }) }}">{% trans %}show{% endtrans %}</a>
-                            </li>
-                            <li>
-                                <a href="{{ path('admin_pais_edit', { 'id': pai.id }) }}">{% trans %}edit{% endtrans %}</a>
-                            </li>
-                        </ul>
+                        <a href="{{ path('admin_pais_edit', { 'id': pai.id }) }}"><i class="fa fa-pencil"></i> {% trans %}edit{% endtrans %}</a>
                     </td>
                 </tr>
             {% endfor %}
@@ -37,11 +30,8 @@
             </div>
         </div>
 
-        <ul>
-            <li>
-                <a href="{{ path('admin_pais_new') }}">Create a new entry</a>
-            </li>
-        </ul>
-
+        
+        <a href="{{ path('admin_pais_new') }}"><i class="fa fa-plus-circle"></i> {% trans %}Create a new entry{% endtrans %}</a>
+        
     </div>    
 {% endblock %}

@@ -21,71 +21,74 @@ class __TwigTemplate_65c43b781ae4572ea9ed8c2d9207797dde1f572e3fa73345d2f652355b8
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_934875cfb93aca24dfd93f287bf786a325c7f97a43780ad01d8e3a6852bcf673 = $this->env->getExtension("native_profiler");
-        $__internal_934875cfb93aca24dfd93f287bf786a325c7f97a43780ad01d8e3a6852bcf673->enter($__internal_934875cfb93aca24dfd93f287bf786a325c7f97a43780ad01d8e3a6852bcf673_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "pais/show.html.twig"));
+        $__internal_2af3370998987f3a1f5c2647a6c199276f441e63b4656963ea9dfb967e049dc4 = $this->env->getExtension("native_profiler");
+        $__internal_2af3370998987f3a1f5c2647a6c199276f441e63b4656963ea9dfb967e049dc4->enter($__internal_2af3370998987f3a1f5c2647a6c199276f441e63b4656963ea9dfb967e049dc4_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "pais/show.html.twig"));
 
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
-        $__internal_934875cfb93aca24dfd93f287bf786a325c7f97a43780ad01d8e3a6852bcf673->leave($__internal_934875cfb93aca24dfd93f287bf786a325c7f97a43780ad01d8e3a6852bcf673_prof);
+        $__internal_2af3370998987f3a1f5c2647a6c199276f441e63b4656963ea9dfb967e049dc4->leave($__internal_2af3370998987f3a1f5c2647a6c199276f441e63b4656963ea9dfb967e049dc4_prof);
 
     }
 
     // line 3
     public function block_body($context, array $blocks = array())
     {
-        $__internal_67b1e073f8fbec54e5b3ba4d3ed772290cc84781223b01f993d34f3d0cc36132 = $this->env->getExtension("native_profiler");
-        $__internal_67b1e073f8fbec54e5b3ba4d3ed772290cc84781223b01f993d34f3d0cc36132->enter($__internal_67b1e073f8fbec54e5b3ba4d3ed772290cc84781223b01f993d34f3d0cc36132_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
+        $__internal_2d7eb900c5b80322c048dc0a78684370a1abf0580db3e99410c5dadf24104cc7 = $this->env->getExtension("native_profiler");
+        $__internal_2d7eb900c5b80322c048dc0a78684370a1abf0580db3e99410c5dadf24104cc7->enter($__internal_2d7eb900c5b80322c048dc0a78684370a1abf0580db3e99410c5dadf24104cc7_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
 
         // line 4
-        echo "    <h1>Pais</h1>
+        echo "
+    <div class=\"container\">
 
-    <table>
-        <tbody>
-            <tr>
-                <th>Nombrepais</th>
-                <td>";
-        // line 10
+        <h1>";
+        // line 7
+        echo $this->env->getExtension('translator')->getTranslator()->trans("Edit Country", array(), "messages");
+        echo "</h1>
+
+        <table class=\"table table-striped table-bordered\">
+            <tbody>
+                <tr>
+                    <th>";
+        // line 12
+        echo $this->env->getExtension('translator')->getTranslator()->trans("Country", array(), "messages");
+        echo "</th>
+                    <td>";
+        // line 13
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["pai"]) ? $context["pai"] : $this->getContext($context, "pai")), "nombrepais", array()), "html", null, true);
         echo "</td>
-            </tr>
-            <tr>
-                <th>Id</th>
-                <td>";
-        // line 14
-        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["pai"]) ? $context["pai"] : $this->getContext($context, "pai")), "id", array()), "html", null, true);
-        echo "</td>
-            </tr>
-        </tbody>
-    </table>
+                </tr>
+            </tbody>
+        </table>
 
-    <ul>
-        <li>
-            <a href=\"";
-        // line 21
+        <ul>
+            <li>
+                <a href=\"";
+        // line 20
         echo $this->env->getExtension('routing')->getPath("admin_pais_index");
         echo "\">Back to the list</a>
-        </li>
-        <li>
-            <a href=\"";
-        // line 24
+            </li>
+            <li>
+                <a href=\"";
+        // line 23
         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("admin_pais_edit", array("id" => $this->getAttribute((isset($context["pai"]) ? $context["pai"] : $this->getContext($context, "pai")), "id", array()))), "html", null, true);
         echo "\">Edit</a>
-        </li>
-        <li>
-            ";
-        // line 27
+            </li>
+            <li>
+                ";
+        // line 26
         echo         $this->env->getExtension('form')->renderer->renderBlock((isset($context["delete_form"]) ? $context["delete_form"] : $this->getContext($context, "delete_form")), 'form_start');
         echo "
-                <input type=\"submit\" value=\"Delete\">
-            ";
-        // line 29
+                    <input type=\"submit\" value=\"Delete\">
+                ";
+        // line 28
         echo         $this->env->getExtension('form')->renderer->renderBlock((isset($context["delete_form"]) ? $context["delete_form"] : $this->getContext($context, "delete_form")), 'form_end');
         echo "
-        </li>
-    </ul>
+            </li>
+        </ul>
+    </div>
 ";
         
-        $__internal_67b1e073f8fbec54e5b3ba4d3ed772290cc84781223b01f993d34f3d0cc36132->leave($__internal_67b1e073f8fbec54e5b3ba4d3ed772290cc84781223b01f993d34f3d0cc36132_prof);
+        $__internal_2d7eb900c5b80322c048dc0a78684370a1abf0580db3e99410c5dadf24104cc7->leave($__internal_2d7eb900c5b80322c048dc0a78684370a1abf0580db3e99410c5dadf24104cc7_prof);
 
     }
 
@@ -101,39 +104,39 @@ class __TwigTemplate_65c43b781ae4572ea9ed8c2d9207797dde1f572e3fa73345d2f652355b8
 
     public function getDebugInfo()
     {
-        return array (  82 => 29,  77 => 27,  71 => 24,  65 => 21,  55 => 14,  48 => 10,  40 => 4,  34 => 3,  11 => 1,);
+        return array (  84 => 28,  79 => 26,  73 => 23,  67 => 20,  57 => 13,  53 => 12,  45 => 7,  40 => 4,  34 => 3,  11 => 1,);
     }
 }
 /* {% extends 'base.html.twig' %}*/
 /* */
 /* {% block body %}*/
-/*     <h1>Pais</h1>*/
 /* */
-/*     <table>*/
-/*         <tbody>*/
-/*             <tr>*/
-/*                 <th>Nombrepais</th>*/
-/*                 <td>{{ pai.nombrepais }}</td>*/
-/*             </tr>*/
-/*             <tr>*/
-/*                 <th>Id</th>*/
-/*                 <td>{{ pai.id }}</td>*/
-/*             </tr>*/
-/*         </tbody>*/
-/*     </table>*/
+/*     <div class="container">*/
 /* */
-/*     <ul>*/
-/*         <li>*/
-/*             <a href="{{ path('admin_pais_index') }}">Back to the list</a>*/
-/*         </li>*/
-/*         <li>*/
-/*             <a href="{{ path('admin_pais_edit', { 'id': pai.id }) }}">Edit</a>*/
-/*         </li>*/
-/*         <li>*/
-/*             {{ form_start(delete_form) }}*/
-/*                 <input type="submit" value="Delete">*/
-/*             {{ form_end(delete_form) }}*/
-/*         </li>*/
-/*     </ul>*/
+/*         <h1>{% trans %}Edit Country{% endtrans %}</h1>*/
+/* */
+/*         <table class="table table-striped table-bordered">*/
+/*             <tbody>*/
+/*                 <tr>*/
+/*                     <th>{% trans %}Country{% endtrans %}</th>*/
+/*                     <td>{{ pai.nombrepais }}</td>*/
+/*                 </tr>*/
+/*             </tbody>*/
+/*         </table>*/
+/* */
+/*         <ul>*/
+/*             <li>*/
+/*                 <a href="{{ path('admin_pais_index') }}">Back to the list</a>*/
+/*             </li>*/
+/*             <li>*/
+/*                 <a href="{{ path('admin_pais_edit', { 'id': pai.id }) }}">Edit</a>*/
+/*             </li>*/
+/*             <li>*/
+/*                 {{ form_start(delete_form) }}*/
+/*                     <input type="submit" value="Delete">*/
+/*                 {{ form_end(delete_form) }}*/
+/*             </li>*/
+/*         </ul>*/
+/*     </div>*/
 /* {% endblock %}*/
 /* */
