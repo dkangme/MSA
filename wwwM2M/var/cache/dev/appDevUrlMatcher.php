@@ -187,6 +187,17 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             }
             not_sensor_index:
 
+            // sensor_list
+            if ($pathinfo === '/sensor/list') {
+                if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
+                    $allow = array_merge($allow, array('GET', 'HEAD'));
+                    goto not_sensor_list;
+                }
+
+                return array (  '_controller' => 'AppBundle\\Controller\\SensorController::listAction',  '_route' => 'sensor_list',);
+            }
+            not_sensor_list:
+
             // sensor_new
             if ($pathinfo === '/sensor/new') {
                 if (!in_array($this->context->getMethod(), array('GET', 'POST', 'HEAD'))) {

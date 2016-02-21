@@ -33,6 +33,28 @@ class SensorController extends Controller
         ));
     }
 
+   /**
+     * Lists all Sensor entities.
+     *
+     * @Route("/list", name="sensor_list")
+     * @Method("GET")
+     */
+    public function listAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $query = $em->createQuery('
+            SELECT p
+            FROM AppBundle:Sensor p'
+        );
+
+        $sensors = $query->getResult();
+
+        return $this->render('sensor/list.html.twig', array(
+            'sensors' => $sensors,
+        ));
+    }
+
     /**
      * Creates a new Sensor entity.
      *
